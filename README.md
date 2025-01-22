@@ -30,4 +30,10 @@ npm install --save-dev assemblyscript
 
 # initialize AssemblyScript project
 npx asinit .
+
+# build AssemblyScript
+npm run asbuild
+
+# run
+npm run start
 ```
