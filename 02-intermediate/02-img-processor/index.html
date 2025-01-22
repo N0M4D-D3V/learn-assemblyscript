@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script type="module">
+      async function init() {
+        // Importa el código JavaScript que envuelve el WebAssembly
+        const {
+          memory,
+          grayscale,
+          inversion,
+          adjustBrightness,
+          applyThreshold,
+        } = await import("./build/release.js");
+
+        // Ejemplo: Crea un buffer de prueba
+        const buffer = new Uint8Array([0, 64, 128, 192, 255]); // Imagen de prueba en escala de grises
+        console.log("Original Buffer:", buffer);
+
+        // Prueba la función inversion
+        const inverted = inversion(buffer);
+        console.log("Inverted Buffer:", inverted);
+
+        // Prueba lightAdjust
+        const adjusted = adjustBrightness(buffer, 50);
+        console.log("Brightness Adjusted Buffer:", adjusted);
+
+        // Prueba binary
+        const binaryResult = applyThreshold(buffer, 128);
+        console.log("Binary Buffer:", binaryResult);
+
+        // Nota: Asegúrate de reiniciar el buffer original si no quieres mutarlo
+      }
+
+      // Llama la función init al cargar la página
+      init();
+    </script>
+  </head>
+  <body>
+    <h1>AssemblyScript Test</h1>
+    <p>Abre la consola para ver los resultados.</p>
+  </body>
+</html>
