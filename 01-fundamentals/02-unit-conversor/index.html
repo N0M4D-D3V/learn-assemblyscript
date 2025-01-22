@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script type="module">
+      import {
+        kmToMiles,
+        milesToKm,
+        celsiusToFahrenheit,
+        fahrenheitToCelsius,
+        minToHour,
+        hourToMin,
+        kgToLb,
+        lbToKg,
+      } from "./build/release.js";
+
+      //distance
+      const kmToMilesEl = document.getElementById("kmToMiles");
+      const milesToKmEl = document.getElementById("milesToKm");
+      kmToMilesEl.innerText = kmToMiles(1);
+      milesToKmEl.innerText = milesToKm(1);
+
+      //temperature
+      const celsiusToFahrenheitEl = document.getElementById(
+        "celsiusToFahrenheit"
+      );
+      const fahrenheitToCelsiusEl = document.getElementById(
+        "fahrenheitToCelsius"
+      );
+      celsiusToFahrenheitEl.innerText = celsiusToFahrenheit(1);
+      fahrenheitToCelsiusEl.innerText = fahrenheitToCelsius(1);
+
+      //time
+      const minToHourEl = document.getElementById("minToHour");
+      const hourToMinEl = document.getElementById("hourToMin");
+      minToHourEl.innerText = minToHour(60);
+      hourToMinEl.innerText = hourToMin(1);
+
+      //weight
+      const kgToLbEl = document.getElementById("kgToLb");
+      const lbToKgEl = document.getElementById("lbToKg");
+      kgToLbEl.innerText = kgToLb(1);
+      lbToKgEl.innerText = milesToKm(1);
+    </script>
+  </head>
+  <body>
+    <p><b>Distance</b></p>
+    <p>1 KM to Miles: <span id="kmToMiles"></span></p>
+    <p>1 Mile to KM: <span id="milesToKm"></span></p>
+    <hr />
+
+    <p><b>Temperature</b></p>
+    <p>celsiusToFahrenheit: <span id="celsiusToFahrenheit"></span></p>
+    <p>fahrenheitToCelsius:<span id="fahrenheitToCelsius"></span></p>
+    <hr />
+
+    <p><b>Time</b></p>
+    <p>minToHour: <span id="minToHour"></span></p>
+    <p>hourToMin: <span id="hourToMin"></span></p>
+    <hr />
+
+    <p><b>Weight</b></p>
+    <p>kgToLb: <span id="kgToLb"></span></p>
+    <p>lbToKg: <span id="lbToKg"></span></p>
+    <hr />
+  </body>
+</html>

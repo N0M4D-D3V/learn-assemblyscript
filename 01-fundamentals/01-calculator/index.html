@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script type="module">
+      import { add, multiply, divide, subtract } from "./build/release.js";
+
+      let addEl = document.getElementById("add");
+      let restEl = document.getElementById("rest");
+      let multiplyEl = document.getElementById("multiply");
+      let divisionEl = document.getElementById("division");
+
+      addEl.innerText = "Add (1+2): " + add(1, 2);
+      restEl.innerText = "Rest (1-2): " + subtract(1, -2);
+      multiplyEl.innerText = "Multiply (2x2): " + multiply(2, 2);
+      divisionEl.innerText = "Division (2/2): " + divide(2, 2);
+
+      // DECIMALS
+      let addElDecimal = document.getElementById("add-decimal");
+      let restElDecimal = document.getElementById("rest-decimal");
+      let multiplyElDecimal = document.getElementById("multiply-decimal");
+      let divisionElDecimal = document.getElementById("division-decimal");
+
+      addElDecimal.innerText = "Add (1+2.5): " + add(1, 2.5);
+      restElDecimal.innerText = "Rest (1-2.5): " + subtract(1, -2.5);
+      multiplyElDecimal.innerText = "Multiply (0.3x2.5): " + multiply(0.3, 2);
+      divisionElDecimal.innerText = "Division (1/2): " + divide(1, 2);
+
+      // ERRORS
+      let zeroEl = document.getElementById("zero-division");
+      try {
+        zeroEl.innerText = "Divide (1/0): " + divide(1, 0);
+      } catch (e) {
+        zeroEl.innerText = "Divide (1/0): " + e;
+      }
+    </script>
+  </head>
+  <body>
+    <p id="add"></p>
+    <p id="rest"></p>
+    <p id="multiply"></p>
+    <p id="division"></p>
+
+    <hr />
+
+    <p id="add-decimal"></p>
+    <p id="rest-decimal"></p>
+    <p id="multiply-decimal"></p>
+    <p id="division-decimal"></p>
+
+    <hr />
+    <p id="zero-division"></p>
+  </body>
+</html>
