@@ -1,51 +1,57 @@
 import {
-  caesarDecript,
-  caesarEncript,
-  xorDecript,
-  xorEncript,
+  aesDecrypt,
+  aesEncrypt,
+  caesarDecrypt,
+  caesarEncrypt,
+  xorDecrypt,
+  xorEncrypt,
 } from "./src/crypto.js";
 
-const caesarEncriptBtnEl = document.getElementById("caesar-encrypt-btn");
-const caesarDecriptBtnEl = document.getElementById("caesar-decrypt-btn");
-const xorEncriptBtnEl = document.getElementById("xor-encrypt-btn");
-const xorDecriptBtnEl = document.getElementById("xor-decrypt-btn");
-
-caesarEncriptBtnEl.addEventListener("click", () => {
-  const resultEl = document.getElementById("caesar-result");
-  const inEl = document.getElementById("caesar-in");
+const cypher = (id, fun) => {
+  const resultEl = document.getElementById(`${id}-result`);
+  const inEl = document.getElementById(`${id}-in`);
   const chain = inEl.value;
-  const encrypted = caesarEncript(chain);
+  const encrypted = fun(chain);
 
   resultEl.innerText = "Result: " + encrypted;
   inEl.value = "";
-});
+};
 
-caesarDecriptBtnEl.addEventListener("click", () => {
-  const resultEl = document.getElementById("caesar-result");
-  const inEl = document.getElementById("caesar-in");
-  const chain = inEl.value;
-  const encrypted = caesarDecript(chain);
+const encrypters = [
+  { id: "caesar", encrypt: caesarEncrypt, decrypt: caesarDecrypt },
+  { id: "xor", encrypt: xorEncrypt, decrypt: xorDecrypt },
+  { id: "aes", encrypt: aesEncrypt, decrypt: aesDecrypt },
+];
+const sectionEl = document.querySelector("section");
 
-  resultEl.innerText = "Result: " + encrypted;
-  inEl.value = "";
-});
+// generate view dynamically
+for (let encrypter of encrypters) {
+  sectionEl.innerHTML += `
+        <div class="encryption-form">
+        <label for="${encrypter.id}-in">${encrypter.id}</label>
+        <input
+          id="${encrypter.id}-in"
+          type="text"
+          placeholder="Text to encript/decript ..."
+        />
 
-xorEncriptBtnEl.addEventListener("click", () => {
-  const resultEl = document.getElementById("xor-result");
-  const inEl = document.getElementById("xor-in");
-  const chain = inEl.value;
-  const encrypted = xorEncript(chain);
+        <button id="${encrypter.id}-encrypt-btn">ENCRYPT</button>
+        <button id="${encrypter.id}-decrypt-btn">DECRYPT</button>
 
-  resultEl.innerText = "Result: " + encrypted;
-  inEl.value = "";
-});
+        <span id="${encrypter.id}-result"></span>
+      </div>
+  `;
+}
 
-xorDecriptBtnEl.addEventListener("click", () => {
-  const resultEl = document.getElementById("xor-result");
-  const inEl = document.getElementById("xor-in");
-  const chain = inEl.value;
-  const encrypted = xorDecript(chain);
+// add listeners
+for (let encrypter of encrypters) {
+  const encriptBtnEl = document.getElementById(`${encrypter.id}-encrypt-btn`);
+  const decriptBtnEl = document.getElementById(`${encrypter.id}-decrypt-btn`);
 
-  resultEl.innerText = "Result: " + encrypted;
-  inEl.value = "";
-});
+  encriptBtnEl.addEventListener("click", () =>
+    cypher(encrypter.id, encrypter.encrypt)
+  );
+  decriptBtnEl.addEventListener("click", () =>
+    cypher(encrypter.id, encrypter.decrypt)
+  );
+}
