@@ -4,25 +4,12 @@
     <link rel="stylesheet" type="text/css" href="styles.css" />
   </head>
   <body>
-    <canvas id="dynamicCanvas" width="500" height="500"></canvas>
-    <div id="card">
-      <div class="input">
-        <label for="y0">Initial height (y0)(m)</label>
-        <input type="text" id="y0" placeholder="Initial height (m)" />
-      </div>
-      <div class="input">
-        <label for="v0">Initial Velocity (v0)(m/s)</label>
-        <input type="text" id="v0" placeholder="Initial Velocity (m/s)" />
-      </div>
-      <div class="input">
-        <label for="g">Gravity Acceleration(g)(m/s^2)</label>
-        <input type="text" id="g" placeholder="Gravity (m/s^2)" />
-      </div>
-
-      <div id="footer">
-        <button id="submitButton">RUN ></button>
-      </div>
+    <div id="actions">
+      <button id="add-btn">+</button>
     </div>
+    <section>
+      <canvas id="simulation" width="800" height="600"></canvas>
+    </section>
 
     <script type="module" src="index.js"></script>
   </body>

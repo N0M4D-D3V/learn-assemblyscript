@@ -1,1 +1,2 @@
-export * from "./physics/free-fall";
+export * from "./engine/physics-engine.class";
+export * from "./engine/config";

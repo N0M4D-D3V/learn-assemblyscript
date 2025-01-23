@@ -4,8 +4,8 @@
   "description": "A physics-engine learn-project using WASM",
   "main": "index.js",
   "scripts": {
-    "asbuild:debug": "asc assembly/index.ts --target debug",
-    "asbuild:release": "asc assembly/index.ts --target release",
+    "asbuild:debug": "asc assembly/index.ts --target debug --exportRuntime",
+    "asbuild:release": "asc assembly/index.ts --target release --exportRuntime",
     "asbuild": "npm run asbuild:debug && npm run asbuild:release",
     "start": "npx serve ."
   },
