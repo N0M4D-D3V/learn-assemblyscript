@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" type="text/css" href="styles.css" />
+  </head>
+  <body>
+    <section>
+      <div class="encryption-form">
+        <label for="caesar-in">CAESAR</label>
+        <input
+          id="caesar-in"
+          type="text"
+          placeholder="Text to encript/decript ..."
+        />
+
+        <button id="caesar-encrypt-btn">ENCRYPT</button>
+        <button id="caesar-decrypt-btn">DECRYPT</button>
+
+        <span id="caesar-result"></span>
+      </div>
+
+      <div class="encryption-form">
+        <label for="xor-in">XOR</label>
+        <input
+          id="xor-in"
+          type="text"
+          placeholder="Text to encript/decript ..."
+        />
+
+        <button id="xor-encrypt-btn">ENCRYPT</button>
+        <button id="xor-decrypt-btn">DECRYPT</button>
+
+        <span id="xor-result"></span>
+      </div>
+    </section>
+    <script type="module" src="index.js"></script>
+  </body>
+</html>

@@ -1,0 +1,32 @@
+.encryption-form {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 10px;
+  
+    margin: 10px;
+  
+    label {
+      width: 5%;
+      padding: 5px;
+    }
+  
+    input {
+      width: 30%;
+  
+      border-top: none;
+      border-left: none;
+      border-right: none;
+  
+      padding: 5px;
+    }
+  
+    button {
+      width: 7%;
+      padding: 5px;
+      color: rgba(0, 0, 0, 0.3);
+      border: 1px solid rgba(0, 0, 0, 0.1);
+      border-radius: 10px;
+    }
+  }
+  
